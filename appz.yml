@@ -4,11 +4,11 @@ app:
     notify: mpmathew@ecloudcontrol.com
     
 build:
-    version: 8.13
+    version: 2.38
     env: DEV
     build_file: none
     output_files: output/*.zip
-    image_template: hasura-3.18exf
+    image_template: hasura-2.38exf
 
 deploy:
     context: exf/DEV
