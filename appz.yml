@@ -1,0 +1,31 @@
+app:
+    name: Hasura
+    code: HASURA
+    notify: mpmathew@ecloudcontrol.com
+    
+build:
+    version: 8.13
+    env: DEV
+    build_file: none
+    output_files: output/*.zip
+    image_template: hasura-3.18exf
+
+deploy:
+    context: exf/DEV
+    replicas: 1
+    port:
+    - 3000
+  
+properties:
+    POSTGRES_USER: prefect
+    POSTGRES_DB: prefect_server
+    POSTGRES_SERVICE: postgres-16-2exf-16-x
+    POSTGRES_PASSWORD:
+      vault: POSTGRES_PASSWORD
+    HASURA_GRAPHQL_ENABLE_CONSOLE: true
+    HASURA_GRAPHQL_SERVER_PORT: 3000
+    HASURA_GRAPHQL_QUERY_PLAN_CACHE_SIZE: 100
+    HASURA_GRAPHQL_LOG_LEVEL: warn
+    HASURA_GRAPHQL_V1_BOOLEAN_NULL_COLLAPSE: true
+    HASURA_HOST_PORT: 3000
+    revision : 39
